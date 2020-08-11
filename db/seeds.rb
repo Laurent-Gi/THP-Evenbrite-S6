@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
+# Pour ne pas envoyer des mails lors de la génération de ma DB
+::Rails.application.config.action_mailer.perform_deliveries = false
+
 
 # Version française !
 Faker::Config.locale = 'fr'
@@ -17,7 +19,7 @@ Attendance.destroy_all
 
 
 puts "Création des Users :"
-15.times do
+10.times do
   password = Faker::Internet.password
   # digest = BCrypt::Password.create(password)
   first = Faker::Name.first_name

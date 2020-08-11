@@ -18,13 +18,17 @@ Attendance.destroy_all
 
 puts "Création des Users :"
 15.times do
-  digest = BCrypt::Password.create(SecureRandom.urlsafe_base64)
+  password = Faker::Internet.password
+  # digest = BCrypt::Password.create(password)
   first = Faker::Name.first_name
   last  = Faker::Name.last_name
   email = "#{first}.#{last}@yopmail.com"
 
-  User.create(email: email, encrypted_password: digest, description: Faker::Lorem.sentences(number: 10).join(' '), first_name: first, last_name: last)
+  User.create(email: email, password: password, description: Faker::Lorem.sentences(number: 10).join(' '), first_name: first, last_name: last)
+  # User.create(email: email, encrypted_password: digest, description: Faker::Lorem.sentences(number: 10).join(' '), first_name: first, last_name: last)
 end
+
+  # digest = BCrypt::Password.create(SecureRandom.urlsafe_base64)
 
 puts "Créations des Evenements : "
 20.times do

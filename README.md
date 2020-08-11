@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Ruby version : 2.7.1
 
-* Ruby version
 
-* System dependencies
+* Rails version : 5.2.4.2
 
-* Configuration
 
-* Database creation
+* Database in : PostGreSQL
 
-* Database initialization
 
-* How to run the test suite
+## Installation :
 
-* Services (job queues, cache servers, search engines, etc.)
+# Penser à vérifier la version de ruby : ruby -v : ici 2.7.1
+## Si besoin modifier le Gemfile avec votre version (ça devrait passer aussi en 2.5.1)
 
-* Deployment instructions
+# Penser à vérifier la version de rails : rails -v : ici 5.2.4.2
+## Si besoin faire un : $ gem install rails -v 5.2.4.2
 
-* ...
+# Penser à faire le bundle install
+
+# Penser à créer la bd :   $ rails db:create
+# Penser aux migrations : $ rails db:migrate
+# Penser à remplir la bd : $ rails db:seed
+
+# Penser à lancer le serveur : $ rails server
+
+## Allez sur le local host de votre machine au port 3000:
+http://localhost:3000/
+
+
+## Pour l'application sur Heroku :
+
+# elle est directement accessible sur : https://sevenbrite.herokuapp.com/
+
+
+https://sevenbrite.herokuapp.com/ | https://git.heroku.com/sevenbrite.git

@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+# Version française !
+Faker::Config.locale = 'fr'
+
+User.destroy_all
+Event.destroy_all
+Attendance.destroy_all
+
+
+puts "Création des Users :"
+15.times do
+  digest = BCrypt::Password.create(SecureRandom.urlsafe_base64)
+  first = Faker::Name.first_name
+  last  = Faker::Name.last_name
+  email = "#{first}.#{last}@yopmail.com"
+
+  User.create(email: email, encrypted_password: digest, description: Faker::Lorem.sentences(number: 10).join(' '), first_name: first, last_name: last)
+end
+
+puts "Créations des Evenements : "
+20.times do
+  Event.create(
+    start_date: Time.now + rand(1..15).days,
+    title: Faker::Lorem.sentences(number: 5).join(' '),
+    description: Faker::Lorem.sentences(number: 10).join(' '),
+    duration: rand(1..36) * 5,
+    price: rand(1..1000),
+    location: Faker::Address.city,
+    administrator: User.all.sample
+  )
+end
+
+
+puts "Créations des Attendances : "
+#On crée des participation d'un User (participant) à un événement 
+20.times do
+  Attendance.create(event: Event.all.sample, stripe_customer_id: "#{SecureRandom.urlsafe_base64}", user: User.all.sample)
+end

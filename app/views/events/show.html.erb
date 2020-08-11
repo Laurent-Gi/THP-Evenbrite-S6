@@ -1,2 +1,22 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+
+<div class="jumbotron jumbotron-fluid text-white text-center my-jumbotron">
+  <div class="mx-auto" style="width: 400px;">
+    <h1>Event <%= @event.title %></h1>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+
+      <p><strong>Description</strong>   : <%= @event.description %></p>
+      <p><strong>Prix</strong>          : <%= @event.price %></p>
+      <p><strong>Participants</strong>  : <%= @event.attendances.count %></p>
+      <p><strong>Admin</strong>         : <%= @event.administrator.email %></p>
+      <p><strong>Date</strong>          : <%= @event.start_date %></p>
+      <p><strong>Date de fin</strong>   : <%= @event_end %></p>
+      <p><strong>Localisation</strong>  : <%= @event.location %></p>
+    </div>
+  </div>
+</div>

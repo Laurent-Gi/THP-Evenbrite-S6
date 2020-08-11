@@ -5,28 +5,40 @@
   <% end %>
 </div>
 
-<div class="jumbotron bg-secondary">
+<!-- <div class="jumbotron bg-secondary"> -->
+  <div class="jumbotron jumbotron-fluid text-white text-center my-jumbotron">
   <h1 class="display-4">Bienvenue sur sEven-t-Brite</h1>
   <p class="lead">Ce site inspiré permet de rejoindre les évènements de ta ville. Et même d'en créer toi-même !</p>
   <hr class="my-4">
   <p>Allez go ! Les activités vont enfin te faire rencontrer tes voisins:</p>
   <p class="lead">
-    <div class="btn btn-dark">
+    <div class="btn btn-light">
       <%= link_to 'Je crée mon Event !', new_event_path, :class => "btn" %>
     </div>
   </p>
 </div>
 
-<h2>Events :</h2>
 
-<div class='card-columns'>
-  <% @events.each do |event| %>
-    <div class="card bg-secondary" style="width: 18rem;">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title"><a class="text-warning"><%= link_to event.title.upcase , event_path(event.id)%></a></h5>
+<div class="container">
+  <div class="row">
+    <h2>Events :</h2>
 
-      </div>
+    <div class='card-columns'>
+      <% @events.each do |event| %>
+        <!-- <div class="card bg-secondary" style="width: 18rem;"> -->
+        <div class="card bg-light" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><a class="text-warning"><%= link_to event.title.upcase , event_path(event.id)%></a></h5>
+              <p class="text-light">Déposé par : <a class="text-warning"><%= link_to event.administrator.first_name , event_path(event.administrator.id)%></a></p>
+  
+          </div>
+        </div>
+       <% end %>
     </div>
-   <% end %>
+
+  </div>
 </div>
+
+<footer class="container">
+  <p>&copy; L. Saives Company 2020.</p>
+</footer>

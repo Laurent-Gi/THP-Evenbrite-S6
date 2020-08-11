@@ -62,4 +62,7 @@ Rails.application.configure do
   # Ajout des lignes pour la Gem Letter_opener
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true # Si false, on éteint tout envoi d'email
+
+  # Ajout avec devise
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

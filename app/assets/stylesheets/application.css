@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+/*Ici je peux ajouter du CSS*/
+
+.my-jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("surf.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+
+  height: 400px;
+}
+
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("20200108_111914.jpg");*/
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("app/assets/images/surf.jpg");*/
+
+.centrer {
+  text-align: center;
+} 

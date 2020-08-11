@@ -1,0 +1,32 @@
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %>
+    </div>
+  <% end %>
+</div>
+
+<div class="jumbotron bg-secondary">
+  <h1 class="display-4">Bienvenue sur sEven-t-Brite</h1>
+  <p class="lead">Ce site inspiré permet de rejoindre les évènements de ta ville. Et même d'en créer toi-même !</p>
+  <hr class="my-4">
+  <p>Allez go ! Les activités vont enfin te faire rencontrer tes voisins:</p>
+  <p class="lead">
+    <div class="btn btn-dark">
+      <%= link_to 'Je crée mon Event !', new_event_path, :class => "btn" %>
+    </div>
+  </p>
+</div>
+
+<h2>Events :</h2>
+
+<div class='card-columns'>
+  <% @events.each do |event| %>
+    <div class="card bg-secondary" style="width: 18rem;">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title"><a class="text-warning"><%= link_to event.title.upcase , event_path(event.id)%></a></h5>
+
+      </div>
+    </div>
+   <% end %>
+</div>

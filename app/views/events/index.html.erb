@@ -29,7 +29,7 @@
         <div class="card bg-light" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><a class="text-warning"><%= link_to event.title.upcase , event_path(event.id)%></a></h5>
-              <p class="text-light">Déposé par : <a class="text-warning"><%= link_to event.administrator.first_name , event_path(event.administrator.id)%></a></p>
+              <p class="text-light">Déposé par : <a class="text-warning"><%= link_to event.administrator.first_name , user_path(event.administrator.id)%></a></p>
   
           </div>
         </div>

@@ -28,13 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <%= link_to 'Accueil', root_path, :class => 'nav-link' %>
-            </li>
-            <li class="nav-item active">
               <%= link_to 'Créer un événement', new_event_path, :class => 'nav-link' %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to 'RIEN', root_path, :class => 'nav-link' %>
             </li>
           </ul>
         </div>
@@ -50,7 +44,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if user_signed_in? %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :DELETE, :class => "nav-link dropdown-item" %>
-            <a class="dropdown-item" href="users#show">Mon profil</a>
+            <%= link_to "Mon profil", edit_user_registration_path, :class => 'nav-link dropdown-item' %>
             <% else %>
             <%= link_to "Se connecter", new_user_session_path, :class => 'nav-link dropdown-item' %>
             <%= link_to "S'inscrire", new_user_registration_path, :class => 'nav-link dropdown-item' %>

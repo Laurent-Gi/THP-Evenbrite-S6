@@ -1,0 +1,24 @@
+<h1>Profil de <%= @user.first_name %></h1>
+
+<p>Nom de famille : <%= @user.last_name %></p>
+<p>Description : <%= @user.description %></p>
+<p><i class="fas fa-at"></i> <%= @user.email %></p>
+
+<div class='card-columns'>
+  <% @events.each do |event| %>
+    <% if event.administrator == @user %>
+    <div class="card bg-light" style="width: 18rem;">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title"><a class="text-warning"><%= link_to event.title , event_path(event.id)%></a></h5>
+      </div>
+    </div>
+    <% end %>
+   <% end %>
+</div>
+
+<p class="lead">
+  <div class="btn btn-light">
+    <%= link_to "Editer mon profil", edit_user_registration_path, :class => "btn" %>
+  </div>
+</p>

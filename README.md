@@ -1,5 +1,6 @@
 # README
 
+Je n'ai pas terminé mais j'ai essayé d'ajouter des vues et même le controller user sans trop de succès
 
 * Ruby version : 2.7.1
 
@@ -36,3 +37,4 @@ http://localhost:3000/
 
 
 https://sevenbrite.herokuapp.com/ | https://git.heroku.com/sevenbrite.git
+

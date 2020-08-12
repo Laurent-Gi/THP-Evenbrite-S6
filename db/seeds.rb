@@ -19,7 +19,7 @@ User.destroy_all
 
 
 puts "Création des Users :"
-10.times do
+15.times do
   password = Faker::Internet.password
   # digest = BCrypt::Password.create(password)
   first = Faker::Name.first_name

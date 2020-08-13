@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # Pas eu le temps pour user
   resources :users, only: [:show]
-  resources :events, only: [:index, :show, :new, :create]
+  resources :events # tout au final !
 
   # Pages de l'exo préalable
   get 'static_pages/index'

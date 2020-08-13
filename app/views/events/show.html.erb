@@ -1,22 +1,36 @@
 
-<div class="jumbotron jumbotron-fluid text-white text-center my-jumbotron">
+<div class="jumbotron jumbotron-fluid text-white text-center my-jumbotron2">
   <div class="mx-auto" style="width: 400px;">
-    <h1>Event <%= @event.title %></h1>
+    <h2>Evènement :  <%= @event.title %></h2>
   </div>
 </div>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9">
+<div class="container mt-4">
 
-      <p><strong>Description</strong>   : <%= @event.description %></p>
-      <p><strong>Prix</strong>          : <%= @event.price %></p>
-      <p><strong>Participants</strong>  : <%= @event.attendances.count %></p>
-      <p><strong>Admin</strong>         : <%= @event.administrator.email %></p>
-      <p><strong>Date</strong>          : <%= @event.start_date %></p>
-      <p><strong>Date de fin</strong>   : <%= @event_end %></p>
-      <p><strong>Localisation</strong>  : <%= @event.location %></p>
+  <div class="row">
+    <div class="card border-success mb-3" style="max-width: 20rem;">
+
+      <div class="card-header">Organisateur: <%= @event.administrator.first_name %> <%= @event.administrator.last_name%></div>
+        <div class="card-body text-success">
+          <h6 class="card-title">Date: <%= @event.start_date %></h6>
+          <p class="card-text text-muted"><%= @event.duration %> min</p>
+          <p class="card-text text-muted"><%= @event.description %></p>
+          <p class="card-text text-muted">Seulement <%= @event.price %>€</p>
+          <p class="card-text text-muted">Se déroule à <%= @event.location %></p>
+          <p class="card-text text-muted">Nombre d'inscrits : <%= @event.attendances.count %></p>
+          <p class="card-text text-muted">Email de l'organisateur : <%= @event.administrator.email %></p>
+
+          <% if @event.administrator == current_user %>
+
+          <%= link_to 'Editer', edit_event_path(@event.id), :class => "btn btn-secondary", style:"font-size:smaller" %>
+          <td>
+              <%= link_to 'Supprimer', @event, method: :delete, data: { confirm: "Es-tu certain?" }, :class => "btn btn-secondary", style:"font-size:smaller" %>
+          </td>
+          <% end %>
+
+        </div>
     </div>
   </div>
+
 </div>

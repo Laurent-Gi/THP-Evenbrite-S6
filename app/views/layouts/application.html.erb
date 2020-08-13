@@ -43,7 +43,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if user_signed_in? %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :DELETE, :class => "nav-link dropdown-item" %>
-            <%= link_to "Mon profil", edit_user_registration_path, :class => 'nav-link dropdown-item' %>
+            <%= link_to "Mon profil", user_path(current_user.id), :class => 'nav-link dropdown-item' %>
             <% else %>
             <%= link_to "Se connecter", new_user_session_path, :class => 'nav-link dropdown-item' %>
             <%= link_to "S'inscrire", new_user_registration_path, :class => 'nav-link dropdown-item' %>

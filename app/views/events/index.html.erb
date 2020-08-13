@@ -5,39 +5,51 @@
   <% end %>
 </div>
 
-<!-- <div class="jumbotron bg-secondary"> -->
+<main role="main">
   <div class="jumbotron jumbotron-fluid text-white text-center my-jumbotron">
-  <h1 class="display-4">Bienvenue sur sEven-t-Brite</h1>
-  <p class="lead">Ce site inspiré permet de rejoindre les évènements de ta ville. Et même d'en créer toi-même !</p>
-  <hr class="my-4">
-  <p>Allez go ! Les activités vont enfin te faire rencontrer tes voisins:</p>
-  <p class="lead">
-    <div class="btn btn-light">
-      <%= link_to 'Je crée mon Event !', new_event_path, :class => "btn" %>
+    <div class="container">
+      <% if current_user %>
+        <h1 class="display-4">Bienvenue <%= current_user.first_name %> sur sEven-t-Brite</h1>
+      <%else%>
+        <h1 class="display-4">Bienvenue sur sEven-t-Brite</h1>
+      <%end%>
+      <p class="lead">Ce site inspiré permet de rejoindre les évènements de ta ville. Et même d'en créer toi-même !</p>
+      <hr class="my-4">
+      <p>Allez go ! Les activités vont enfin te faire rencontrer tes voisins:</p>
+      <p class="lead">
+      <div class="btn btn-light">
+        <%= link_to 'Je crée mon Event !', new_event_path, :class => "btn" %>
+      </div>
+      </p>
     </div>
-  </p>
-</div>
+  </div>
 
+  <div class="container">
+    <h2>Consultez les évènements :</h2>
+  </div>
 
-<div class="container">
-  <div class="row">
-    <h2>Events :</h2>
-
-    <div class='card-columns'>
-      <% @events.each do |event| %>
-        <!-- <div class="card bg-secondary" style="width: 18rem;"> -->
-        <div class="card bg-light" style="width: 18rem;">
+  <div class="card-deck">
+    <% @events.each do |event| %>
+      <div class="col-md-4">
+        <div class="card bg-light m-4" style="height: 22rem">
           <div class="card-body">
-            <h5 class="card-title"><a class="text-warning"><%= link_to event.title.upcase , event_path(event.id)%></a></h5>
-              <p class="text-light">Déposé par : <a class="text-warning"><%= link_to event.administrator.first_name , user_path(event.administrator.id)%></a></p>
-  
+
+            <h5 class="card-title"><a class="text-warning"><%= link_to event.title , event_path(event.id)%></a></h5>
+            <p class="card-text"><%= event.description%> </p>
+            <p class="card-text text-muted">Se déroule à <%= event.location %></p>
           </div>
+
+          <div class="card-footer">
+            <p class="card-text"><%= link_to "#{event.administrator.first_name} #{event.administrator.last_name}" , user_path(event.administrator.id), :class => "text-warning btn btn-info", style:"font-size:smaller"%></p>
+          </div>
+  
         </div>
-       <% end %>
-    </div>
+      </div>
+    <% end %>
 
   </div>
-</div>
+
+</main>
 
 <footer class="container">
   <p>&copy; L. Saives Company 2020.</p>

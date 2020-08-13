@@ -3,21 +3,20 @@
   <head>
     <title>THP sEven-t-Brite - S6 J2 -</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <%= link_to 'The sEven-t-Brite', root_path, :class => 'navbar-brand' %>
@@ -44,7 +43,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if user_signed_in? %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :DELETE, :class => "nav-link dropdown-item" %>
-            <%= link_to "Mon profil", edit_user_registration_path, :class => 'nav-link dropdown-item' %>
+            <%= link_to "Mon profil", user_show_path, :class => 'nav-link dropdown-item' %>
             <% else %>
             <%= link_to "Se connecter", new_user_session_path, :class => 'nav-link dropdown-item' %>
             <%= link_to "S'inscrire", new_user_registration_path, :class => 'nav-link dropdown-item' %>
@@ -62,7 +61,7 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome : Pas forcément nécessaire ici / Sauf si je récupère des icones -->
     <script src="https://kit.fontawesome.com/d8867a0f08.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

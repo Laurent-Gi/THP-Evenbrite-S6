@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :attendances
   has_many :events, through: :attendances
-  has_many :events, foreign_key: 'administrator_id', class_name: "Event"
+  has_many :events, foreign_key: 'administrator_id', dependent: :destroy, class_name: "Event"
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

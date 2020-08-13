@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, only: [:show,:create,:edit,:update,:create,:destroy]
-  before_action :is_my_profile, only: [:show,:edit]
+  # before_action :authenticate_user, only: [:show, :create, :edit, :update, :destroy]
+  # before_action :is_my_profile, only: [:show,:edit]
+
+  # Pour l'instant
+  before_action :authenticate_user, only: [:show]
+  before_action :is_my_profile, only: [:show]
 
   def show
-    @user = User.find(params[:id])
-    @events = Event.all
+    @user = current_user
+    # Liste des evenements de l'utilisateur ? à voir où le mettre ?
+    # @user_events = Event.where(administrator_id: @user.id)
   end
 
 

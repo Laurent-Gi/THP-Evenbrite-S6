@@ -20,6 +20,7 @@
 /node_modules
 /yarn-error.log
 
+# Les fichiers générés -precompilés- dans public/assets (pas de sens de les historiser dans Git)
 /public/assets
 .byebug_history
 

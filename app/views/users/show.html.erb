@@ -1,3 +1,5 @@
+<!-- POUR LISTER LES EVENEMENTS D'UN ORGANISATEUR  LORSQU'ON REGARDE SA PROPRE PAGE -->
+
   <div class="container mt-4">
   <h2>Profil :</h2>
 
@@ -14,7 +16,7 @@
   </div>
   
 
-  <!-- Liste événements -->
+  <!-- Liste événements  BOUCLE SUR SES PROPRES EVENEMENTS -->
   <h3 class="mt-4 mb-4">Les événements de <%= @user.first_name %> <%= @user.email %> :</h3>
   <% @user.events.each do |event|%>
   <div class="row my-3">

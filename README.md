@@ -1,6 +1,5 @@
 # README
 
-Je n'ai pas terminé mais j'ai essayé d'ajouter des vues et même le controller user sans trop de succès
 
 * Ruby version : 2.7.1
 
@@ -9,6 +8,19 @@ Je n'ai pas terminé mais j'ai essayé d'ajouter des vues et même le controller
 
 
 * Database in : PostGreSQL
+
+
+Pour l'environnement Héroku, on accepte les clés de test :
+git init
+git add .
+git commit -m 'Mon application Stripe'
+heroku create
+heroku config:set PUBLISHABLE_KEY=pk_test_TYooMQauvdEDq54NiTphI7jx SECRET_KEY=sk_test_4eC39HqLyjWDarjtT1zdp7dc
+git push heroku master
+heroku open
+
+Cette ligne contient donc les deux clés utiles :
+heroku config:set PUBLISHABLE_KEY=pk_test_TYooMQauvdEDq54NiTphI7jx SECRET_KEY=sk_test_4eC39HqLyjWDarjtT1zdp7dc
 
 
 ## Installation :

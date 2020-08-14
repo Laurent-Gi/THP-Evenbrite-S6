@@ -1,0 +1,31 @@
+<!-- POUR LISTER LES PARTICIPANTS D'UN EVENEMENT LORSQUE L'ADMINISTRATOR REGARDE SA PROPRE PAGE -->
+<div class="container mt-4">
+  <h2>Voici la liste des participants à ton événement :</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <br>
+
+        <ul class="list-group">
+        <% if @attendances_for_this_event == [] %>
+          <p>Désolé, mais il n'y a pas encore de participant à ton évènement</p>
+        <% else %>
+          <% @attendances_for_this_event.each do |attendance| %>
+            <li class="list-group-item"><%= attendance.user.email %> <%= attendance.user.first_name %>  <%= attendance.user.last_name %> participe à ton événement! </li>
+            </ul>
+          <% end %>
+        <% end %>
+
+        <br><br>
+        <a type="button" href="<%= edit_event_path(@event.id) %>" class="btn btn-warning btn-lg btn-block">Modifier l'événement</a>
+    
+      </div>
+    </div>
+  </div>    
+  
+</div>
+
+
+
+  

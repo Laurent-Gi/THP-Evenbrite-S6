@@ -65,4 +65,9 @@ Rails.application.configure do
 
   # Ajout avec devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Ajout pour ne pas redémarrer le serveur à chaque changement
+  # See https://stackoverflow.com/questions/18270945/rails-server-needs-restart-every-time-i-make-changes-why
+  config.reload_classes_only_on_change = false
+
 end

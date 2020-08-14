@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'  # Gem pour pusher => seulement depuis la partie développement
 end
 
 group :development do
@@ -65,5 +66,5 @@ gem 'tzinfo-data', '>= 1.2016.7'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'table_print'
 gem 'time_difference'
-gem 'dotenv-rails'  # Gem pour pusher => seulement depuis la partie développement
 gem 'devise'
+gem 'stripe'

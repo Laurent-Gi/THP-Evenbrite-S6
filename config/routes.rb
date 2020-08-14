@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
-  # Pas eu le temps pour user
+
   resources :users, only: [:show]
-  resources :events # tout au final !
+  resources :events do
+    resources :attendances
+    resources :charges, only: [:new, :create]
+  end
 
   # Pages de l'exo préalable
   get 'static_pages/index'
